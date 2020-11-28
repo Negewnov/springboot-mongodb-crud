@@ -13,22 +13,20 @@ public class Membership {
 
 	@Transient
     public static final String SEQUENCE_NAME = "users_sequence";
-
+	
 	@Id
 	private long id;
-
+	
 	@NotBlank
-    @Indexed(unique=true)
-	private long personID;
-	private long groupID;
+    @Size(max=100)
+	private String membershipName;
 
 	public Membership() {
-
+		
 	}
-
-	public Membership(long personID, long groupID) {
-		this.personID = personID;
-		this.groupID = groupID;
+	
+	public Membership(String membershipName) {
+		this.membershipName = membershipName;
 	}
 	
 	public long getId() {
@@ -38,24 +36,17 @@ public class Membership {
 		this.id = id;
 	}
 	
-	public long getPersonID() {
-		return personID;
+	public String getMembershipName() {
+		return membershipName;
 	}
-	public void setPersonID(long personID) {
-		this.personID = personID;
-	}
-
-	public long getGroupID() {
-		return groupID;
-	}
-	public void setGroupID(long groupID) {
-		this.groupID = groupID;
+	public void setMembershipName(String membershipName) {
+		this.membershipName = membershipName;
 	}
 
 
 	@Override
 	public String toString() {
-		return "Membership [id=" + id + ", personID=" + personID + ", groupID=" + groupID
+		return "Membership [id=" + id + ", membershipName=" + membershipName 
 				+ "]";
 	}	
 }

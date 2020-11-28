@@ -39,10 +39,11 @@ public class MembershipController {
 
     // get membership by id rest api
 	@GetMapping("/memberships/{id}")
-	public List<Membership> getMembershipByPersonId(@PathVariable(value = "id") Long personId)
+	public ResponseEntity<Membership> getMembershipById(@PathVariable(value = "id") Long membershipId)
 			throws ResourceNotFoundException {
-		List<Membership> memberships = membershipRepository.findByPersonID(personId);
-		return memberships;
+		Membership membership = membershipRepository.findById(membershipId)
+				.orElseThrow(() -> new ResourceNotFoundException("Membership not found for this id :: " + membershipId));
+		return ResponseEntity.ok().body(membership);
 	}
 
     // update membership rest api
@@ -53,8 +54,7 @@ public class MembershipController {
 		Membership membership = membershipRepository.findById(membershipId)
 				.orElseThrow(() -> new ResourceNotFoundException("Membership not found for this id :: " + membershipId));
 
-		membership.setPersonID(membershipDetails.getPersonID());
-		membership.setGroupID(membershipDetails.getGroupID());
+		membership.setMembershipName(membershipDetails.getMembershipName());
 
 		final Membership updatedMembership = membershipRepository.save(membership);
 		return ResponseEntity.ok(updatedMembership);
