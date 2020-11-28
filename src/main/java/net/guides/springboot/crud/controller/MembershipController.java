@@ -55,6 +55,8 @@ public class MembershipController {
 				.orElseThrow(() -> new ResourceNotFoundException("Membership not found for this id :: " + membershipId));
 
 		membership.setMembershipName(membershipDetails.getMembershipName());
+		membership.setPersonId(membershipDetails.getPersonId());
+		membership.setGroupId(membershipDetails.getGroupId());
 
 		final Membership updatedMembership = membershipRepository.save(membership);
 		return ResponseEntity.ok(updatedMembership);
