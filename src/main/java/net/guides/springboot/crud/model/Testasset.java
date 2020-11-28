@@ -8,8 +8,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-@Document (collection = "Testassets")
-public class Testassets {
+@Document (collection = "Testasset")
+public class Testasset {
 
 	@Transient
     public static final String SEQUENCE_NAME = "users_sequence";
@@ -29,11 +29,11 @@ public class Testassets {
 	private String phoneNumber;
 	private String emailId;
 
-	public Testassets() {
+	public Testasset() {
 		
 	}
 	
-	public Testassets(String firstName, String lastName, String phoneNumber, String emailId) {
+	public Testasset(String firstName, String lastName, String phoneNumber, String emailId) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.phoneNumber = phoneNumber;
@@ -77,7 +77,7 @@ public class Testassets {
 
 	@Override
 	public String toString() {
-		return "Testassets [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", phoneNumber=" + phoneNumber + ", emailId=" + emailId
+		return "Testasset [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", phoneNumber=" + phoneNumber + ", emailId=" + emailId
 				+ "]";
 	}
 }
