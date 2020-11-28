@@ -20,14 +20,14 @@ public class Membership {
 	@NotBlank
     @Size(max=100)
 	private String membershipName;
-	private long personId;
-	private long groupId;
+	private String personId;
+	private String groupId;
 
 	public Membership() {
 		
 	}
 	
-	public Membership(String membershipName, long personId, long groupId) {
+	public Membership(String membershipName, String personId, String groupId) {
 		this.membershipName = membershipName;
 		this.personId = personId;
 		this.groupId = groupId;
@@ -47,16 +47,16 @@ public class Membership {
 		this.membershipName = membershipName;
 	}
 	
-	public long getPersonId() {
+	public String getPersonId() {
 		return personId;
 	}
-	public void setPersonId(long personId) {
+	public void setPersonId(String personId) {
 		this.personId = personId;
 	}
-	public long getGroupId() {
+	public String getGroupId() {
 		return groupId;
 	}
-	public void setGroupId(long groupId) {
+	public void setGroupId(String groupId) {
 		this.groupId = groupId;
 	}
 
